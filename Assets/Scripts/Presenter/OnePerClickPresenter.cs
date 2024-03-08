@@ -7,15 +7,19 @@ using System.Threading.Tasks;
 namespace ResourceClicker
 {
     //Отвечает за обработку нажатия кнопки ресурса
-    public class OnePerClickPresenter : Presenter
+    public class OnePerClickPresenter : Presenter, IResourceClicker
     {
-        public OnePerClickPresenter(Model model) : base(model)
+        public OnePerClickPresenter(IResourcesModel model, IResourcesChanger changer, View view)
+            : base(model, changer, view)
         {
         }
 
-        public override void OnResourceButtonClicked(string resource)
+        public void OnResourceButtonClicked(string resource)
         {
-            _model.ChangeResourceValue(resource, 1);
+            _changer.ChangeResourceValue(resource, 1);
+
+            _view.DisplayResource(resource, _model.Resources[resource]);
+            _view.DisplayTotal(_model.TotalResources);
         }
     }
 }

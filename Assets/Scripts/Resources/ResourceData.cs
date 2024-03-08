@@ -10,7 +10,7 @@ namespace ResourceClicker.Resources
     public class ResourceData
     {
         [field: SerializeReference] public Button Button { get; private set; }
-        [field: SerializeReference] public TextMeshProUGUI CountText { get; private set; }
+        [field: SerializeReference] public TextMeshProUGUI[] CountTexts { get; private set; }
         [field: SerializeReference] public TextMeshProUGUI ResourceText { get; private set; }
 
         public string Name => _resource.Name;

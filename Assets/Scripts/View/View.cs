@@ -9,10 +9,10 @@ namespace ResourceClicker
     {
         [SerializeField] protected TextMeshProUGUI _textTotal;
 
-        protected Presenter _presenter;
-        protected Model _model;
+        protected IResourceClicker _presenter;
+        protected IResourcesModel _model;
 
-        public void Init(Presenter presenter, Model model)
+        public void Init(IResourceClicker presenter, IResourcesModel model)
         {
             _presenter = presenter;
             _model = model;

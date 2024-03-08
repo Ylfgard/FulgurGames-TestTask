@@ -3,13 +3,15 @@ namespace ResourceClicker
     //Ѕазовый класс дл€ объектов выполн€ющих игровую логику
     public abstract class Presenter
     {
-        protected Model _model;
+        protected IResourcesModel _model;
+        protected IResourcesChanger _changer;
+        protected View _view;
 
-        public Presenter(Model model)
+        public Presenter(IResourcesModel model, IResourcesChanger changer, View view)
         {
             _model = model;
+            _changer = changer;
+            _view = view;
         }
-
-        public abstract void OnResourceButtonClicked(string resource);
     }
 }

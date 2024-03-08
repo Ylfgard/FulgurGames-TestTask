@@ -7,5 +7,7 @@ namespace ResourceClicker.Resources
     public class Resource : ScriptableObject
     {
         [field: SerializeReference] public string Name { get; private set; }
+        [field: SerializeReference] public float GeneratePeriod { get; private set; }
+        [field: SerializeReference] public float ResourcesPerTick { get; private set; }
     }
 }

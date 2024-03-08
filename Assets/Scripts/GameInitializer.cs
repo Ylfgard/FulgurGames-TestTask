@@ -9,11 +9,12 @@ namespace ResourceClicker
     {
         [SerializeField] private ResourceTextView _resourceView;
         [SerializeField] private Resource[] resources;
+        [SerializeField] private bool _needLoadData;
 
         private void Awake()
         {
-            var model = new ResourceModel(_resourceView, resources);
-            var presenter = new OnePerClickPresenter(model);
+            var model = new ResourceModel(resources, _needLoadData);
+            var presenter = new OnePerClickPresenter(model, model, _resourceView);
             _resourceView.Init(presenter, model);
         }
     }
